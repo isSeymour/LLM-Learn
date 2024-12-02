@@ -14,7 +14,6 @@ class Qwen2(LLM):
     tokenizer: object = None
     model: object = None
     history: List = []
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     def __init__(self,max_new_tokens = 1920,
                       temperature = 0.9,
@@ -38,8 +37,8 @@ class Qwen2(LLM):
             model_name_or_path,
             torch_dtype="auto",
             # torch_dtype="torch.float16",
-            device_map="auto",       #sequential/auto/balanced_low_0
-            max_memory={0:"40GB",1: "40GB", 2: "8GB", 3: "8GB"}
+            device_map="sequential",       #sequential/auto/balanced_low_0
+            # max_memory={0:"40GB",1: "40GB", 2: "8GB", 3: "8GB"}
         )
         
         # 模型主要的chat功能实现
@@ -66,7 +65,7 @@ class Qwen2(LLM):
                 add_generation_prompt=True
             )
                         
-            model_inputs = tokenizer([text], return_tensors="pt").to(self.device)
+            model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
             
             generated_ids = model.generate(
                 **model_inputs,

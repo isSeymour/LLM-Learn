@@ -2,8 +2,7 @@ import gradio as gr
 # 为上述“结合Langchain调用Qwen” 中的 class Qwen2 
 from Qwen2 import Qwen2
 # 模型所在的地址
-model_path = "/mnt/diskb5/zhangbo_private/llm_model/qwen/Qwen2___5-7B-Instruct"
-# model_path = "/mnt/diskb5/LLM/Qwen/Qwen2-72B-Instruct-AWQ"
+model_path = "../HF/Qwen2.5-7B-Instruct"
 # 载入模型
 llm = Qwen2()
 llm.load_model(model_path)
