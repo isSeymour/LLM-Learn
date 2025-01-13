@@ -1,0 +1,15 @@
+1. 
+若使用转发站，先在cmd 下配置环境：
+export OPENAI_API_BASE="https://tb.plus7.plus/v1"
+然后运行程序。
+
+2. 关于两个需要的 API
+（1）openai 的：
+官网：https://platform.openai.com/
+转发站：https://tb.plus7.plus/
+目前我是采用 转发站 来完成。
+
+（2）金融财务信息的：
+网站：https://www.financialdatasets.ai/
+
+
